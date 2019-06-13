@@ -22,25 +22,28 @@ document.onkeyup = function (event) {
         
 // when the player wins, increase the Wins counter and restart the game without refreshing the page. 
 
-        if (userGuess === computerGuess) {
-            wins++;
-            numGuesses = 9;
-            guessChoices = [];
-        }
+if (userGuess === computerGuess) {
+    wins++;
+    numGuesses = 9;
+    guessChoices = [];
+}
+else {
+    if (guessChoices.includes(userGuess)) {
+        
+        // Code for duplicate guess
+    }
+    else {
+        numGuesses--;
+        guessChoices.push(userGuess);
+    }
+}
 
-        if (userGuess != computerGuess) {
-            numGuesses--;
-            guessChoices.push(userGuess);
-        }
+if (numGuesses === 0) {
+    numGuesses = 9;
+    losses++;
+    guessChoices = [];
+}
 
-        if (numGuesses === 0) {
-
-            numGuesses = 9;
-            losses++;
-            guessChoices = [];
-
-
-        }
 
         var html =
             "<h1> The Psychic Game </h1>" +
